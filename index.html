@@ -7,9 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-  /* ── Official U of I System brand palette ─────────────
-     Source: uillinois.edu/erc/brand_and_marketing/brand/color_palettes
-  ──────────────────────────────────────────────────────── */
+  /* ── U of I System brand palette ──────────────────────
+     uillinois.edu/erc/brand_and_marketing/brand/color_palettes
+  ────────────────────────────────────────────────────── */
   :root {
     --navy:        #13294B;
     --blue-mid:    #1F4096;
@@ -23,12 +23,12 @@
     --dk-yellow:   #FFD125;
     --salmon:      #EE5E5E;
     --periwinkle:  #4F6898;
-    --bg:       #EFEFEF;
-    --surface:  #FFFFFF;
-    --text:     #1a1a1a;
-    --muted:    var(--gray-dark);
-    --border:   var(--gray-light);
-    --step-w:   680px;
+    --bg:      #EFEFEF;
+    --surface: #FFFFFF;
+    --text:    #1a1a1a;
+    --muted:   var(--gray-dark);
+    --border:  var(--gray-light);
+    --step-w:  700px;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -43,141 +43,123 @@
     max-width: 960px; margin: 0 auto;
     padding: 20px 32px; display: flex; align-items: center; gap: 18px;
   }
-  .brand-i { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; }
-  .brand-i .bar  { width: 32px; height: 5px; background: var(--blue-bright); border-radius: 1px; }
-  .brand-i .stem { width: 13px; height: 24px; background: var(--gray-light); border-radius: 1px; }
-  .header-text .title {
-    color: #fff; font-family: 'Source Serif 4', serif;
-    font-size: 1.25rem; font-weight: 600; line-height: 1.2;
-  }
-  .header-text .sub {
-    color: var(--gray-mid); font-size: 0.69rem; font-weight: 300;
-    letter-spacing: .07em; text-transform: uppercase; margin-top: 4px;
-  }
-  .header-text .attribution {
-    color: rgba(255,255,255,.5); font-size: 0.69rem;
-    font-weight: 300; margin-top: 6px; font-style: italic;
-  }
-  .header-text .attribution a { color: var(--gray-blue); text-decoration: none; }
-  .header-text .attribution a:hover { text-decoration: underline; }
+  .brand-i { flex-shrink:0; display:flex; flex-direction:column; align-items:center; gap:3px; }
+  .brand-i .bar  { width:32px; height:5px; background:var(--blue-bright); border-radius:1px; }
+  .brand-i .stem { width:13px; height:24px; background:var(--gray-light); border-radius:1px; }
+  .hdr-title { color:#fff; font-family:'Source Serif 4',serif; font-size:1.25rem; font-weight:600; line-height:1.2; }
+  .hdr-sub { color:var(--gray-mid); font-size:0.69rem; font-weight:300; letter-spacing:.07em; text-transform:uppercase; margin-top:4px; }
+  .hdr-attr { color:rgba(255,255,255,.48); font-size:0.69rem; font-weight:300; font-style:italic; margin-top:5px; }
+  .hdr-attr a { color:var(--gray-blue); text-decoration:none; }
+  .hdr-attr a:hover { text-decoration:underline; }
 
   /* ─── PROGRESS ────────────────────────────────────────── */
-  .progress-wrap {
-    background: var(--blue-mid); padding: 9px 32px;
-    display: flex; align-items: center; gap: 14px;
-  }
-  .progress-bg { flex: 1; height: 3px; background: rgba(255,255,255,.2); border-radius: 2px; overflow: hidden; }
-  .progress-fill {
-    height: 100%; background: var(--gray-blue); border-radius: 2px;
-    transition: width .45s cubic-bezier(.4,0,.2,1); width: 0%;
-  }
-  .progress-label {
-    color: rgba(255,255,255,.65); font-size: 0.7rem; font-weight: 700;
-    letter-spacing: .05em; text-transform: uppercase; white-space: nowrap;
-  }
+  .progress-wrap { background:var(--blue-mid); padding:9px 32px; display:flex; align-items:center; gap:14px; }
+  .progress-bg   { flex:1; height:3px; background:rgba(255,255,255,.2); border-radius:2px; overflow:hidden; }
+  .progress-fill { height:100%; background:var(--gray-blue); border-radius:2px; transition:width .45s cubic-bezier(.4,0,.2,1); width:0%; }
+  .progress-lbl  { color:rgba(255,255,255,.65); font-size:0.7rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; white-space:nowrap; }
 
   /* ─── MAIN ────────────────────────────────────────────── */
-  main { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 44px 20px 80px; }
+  main { flex:1; display:flex; flex-direction:column; align-items:center; padding:40px 20px 80px; }
 
   /* ─── BREADCRUMB ──────────────────────────────────────── */
-  #breadcrumb {
-    width: 100%; max-width: var(--step-w);
-    display: flex; flex-wrap: wrap; gap: 5px;
-    margin-bottom: 22px; min-height: 22px;
-  }
-  .crumb { display: flex; align-items: center; gap: 5px; }
-  .crumb .ans {
-    background: var(--navy); color: #fff;
-    font-size: 0.67rem; font-weight: 700;
-    padding: 2px 8px; border-radius: 2px;
-    letter-spacing: .05em; text-transform: uppercase;
-  }
-  .crumb-sep { color: var(--gray-mid); font-size: 0.8rem; }
+  #breadcrumb { width:100%; max-width:var(--step-w); display:flex; flex-wrap:wrap; gap:5px; margin-bottom:20px; min-height:22px; }
+  .crumb { display:flex; align-items:center; gap:5px; }
+  .crumb .ans { background:var(--navy); color:#fff; font-size:0.67rem; font-weight:700; padding:2px 8px; border-radius:2px; letter-spacing:.05em; text-transform:uppercase; }
+  .crumb-sep { color:var(--gray-mid); font-size:0.8rem; }
 
   /* ─── CARD ────────────────────────────────────────────── */
   .step-card {
-    width: 100%; max-width: var(--step-w);
-    background: var(--surface); border: 1px solid var(--border);
-    border-top: 4px solid var(--navy); border-radius: 2px;
-    box-shadow: 0 2px 18px rgba(19,41,75,.08); overflow: hidden;
-    animation: up .3s cubic-bezier(.4,0,.2,1) both;
+    width:100%; max-width:var(--step-w);
+    background:var(--surface); border:1px solid var(--border);
+    border-top:4px solid var(--navy); border-radius:2px;
+    box-shadow:0 2px 18px rgba(19,41,75,.08); overflow:hidden;
+    animation:up .3s cubic-bezier(.4,0,.2,1) both;
   }
-  @keyframes up { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes up { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
 
-  /* ─── QUESTION ────────────────────────────────────────── */
-  .step-body { padding: 34px 40px 30px; }
+  /* ─── QUESTION BODY ───────────────────────────────────── */
+  .step-body { padding:32px 40px 28px; }
   .eyebrow {
-    font-size: 0.67rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: .1em; color: var(--blue-bright); margin-bottom: 12px;
-    display: flex; align-items: center; gap: 8px;
+    font-size:0.67rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em;
+    color:var(--blue-bright); margin-bottom:10px; display:flex; align-items:center; gap:8px;
   }
-  .eyebrow::before { content:''; display:inline-block; width:18px; height:2px; background:var(--blue-bright); border-radius:1px; }
-  .q-text {
-    font-family: 'Source Serif 4', serif; font-size: 1.55rem;
-    font-weight: 600; line-height: 1.3; color: var(--navy); margin-bottom: 10px;
-  }
-  .q-hint { font-size: 0.83rem; color: var(--muted); line-height: 1.65; margin-bottom: 26px; font-weight: 300; }
+  .eyebrow::before { content:''; width:18px; height:2px; background:var(--blue-bright); border-radius:1px; display:inline-block; }
+  .q-text  { font-family:'Source Serif 4',serif; font-size:1.5rem; font-weight:600; line-height:1.3; color:var(--navy); margin-bottom:8px; }
+  .q-hint  { font-size:0.83rem; color:var(--muted); line-height:1.65; margin-bottom:20px; font-weight:300; }
+  .q-hint strong { color:var(--navy); font-weight:700; }
 
-  /* grad plus note */
-  .grad-plus-note {
-    background: #EEF3F9; border: 1px solid #C4D2E5;
-    border-left: 3px solid var(--gray-blue);
-    border-radius: 2px; padding: 10px 14px; margin-bottom: 18px;
-    font-size: 0.78rem; line-height: 1.55; color: var(--muted);
+  /* how-to-check note */
+  .check-note {
+    background:#EEF3F9; border:1px solid #C4D2E5; border-left:3px solid var(--gray-blue);
+    border-radius:2px; padding:11px 14px; margin-bottom:18px;
+    font-size:0.79rem; line-height:1.6; color:var(--muted);
   }
-  .grad-plus-note strong { color: var(--navy); }
+  .check-note strong { color:var(--navy); }
+  .check-note a { color:var(--blue-bright); }
 
-  .choices { display: flex; flex-direction: column; gap: 9px; }
+  /* grad-plus clarifier */
+  .grad-note {
+    background:#E8EDF6; border:1px solid #B5C4DF; border-left:3px solid var(--blue-mid);
+    border-radius:2px; padding:11px 14px; margin-bottom:18px;
+    font-size:0.79rem; line-height:1.6; color:var(--text);
+  }
+  .grad-note strong { color:var(--navy); }
+
+  /* ─── CHOICES ─────────────────────────────────────────── */
+  .choices { display:flex; flex-direction:column; gap:8px; }
   .choice {
-    display: flex; align-items: center; gap: 14px;
-    background: var(--bg); border: 1.5px solid var(--border);
-    border-radius: 2px; padding: 14px 18px; cursor: pointer; text-align: left;
-    font-family: 'Source Sans 3', sans-serif; font-size: 0.92rem; color: var(--text);
-    transition: border-color .14s, background .14s, box-shadow .14s;
+    display:flex; align-items:center; gap:12px;
+    background:var(--bg); border:1.5px solid var(--border);
+    border-radius:2px; padding:12px 16px;
+    cursor:pointer; text-align:left;
+    font-family:'Source Sans 3',sans-serif; font-size:0.91rem; color:var(--text);
+    transition:border-color .13s, background .13s, box-shadow .13s;
   }
-  .choice:hover { border-color: var(--blue-bright); background: #EEF3FA; box-shadow: inset 3px 0 0 var(--blue-bright); }
-  .choice:hover .arrow { color: var(--navy); transform: translateX(3px); }
-  .c-icon { width:34px; height:34px; border-radius:2px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.82rem; }
+  .choice:hover { border-color:var(--blue-bright); background:#EEF3FA; box-shadow:inset 3px 0 0 var(--blue-bright); }
+  .choice:hover .arrow { color:var(--navy); transform:translateX(3px); }
+  .c-icon { width:32px; height:32px; border-radius:2px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.78rem; }
   .i-yes { background:#E4EEEE; color:var(--teal); }
   .i-no  { background:#F5E9EA; color:#8B1A2A; }
   .i-a   { background:#E8EDF6; color:var(--blue-mid); }
   .i-b   { background:#EDF4F7; color:#2A6E87; }
-  .i-c   { background:#F0EDF8; color:#4A2A8A; }
+  .i-c   { background:#EDEAF5; color:#4A3587; }
+  .i-d   { background:#E8F2E8; color:#2A6A2A; }
+  .i-e   { background:#F5EDE8; color:#7A3A1A; }
   .c-label { flex:1; }
   .c-main { font-weight:600; }
-  .c-sub  { font-size:0.77rem; color:var(--muted); margin-top:2px; font-weight:300; }
-  .arrow  { color:var(--gray-mid); font-size:0.95rem; flex-shrink:0; transition:transform .14s, color .14s; }
+  .c-sub  { font-size:0.76rem; color:var(--muted); margin-top:2px; font-weight:300; }
+  .arrow  { color:var(--gray-mid); font-size:0.95rem; flex-shrink:0; transition:transform .13s, color .13s; }
 
-  /* ─── DIVIDER / ACTIONS ───────────────────────────────── */
+  /* ─── CARD DIVIDER / ACTIONS ──────────────────────────── */
   .card-hr { border:none; border-top:1px solid var(--border); }
-  .actions { padding:14px 40px 22px; display:flex; gap:10px; flex-wrap:wrap; }
+  .actions { padding:13px 40px 20px; display:flex; gap:10px; flex-wrap:wrap; }
   .btn-back {
     background:transparent; border:1.5px solid var(--border); color:var(--muted);
-    padding:9px 20px; border-radius:2px; cursor:pointer;
-    font-family:'Source Sans 3',sans-serif; font-size:0.86rem; font-weight:600;
-    transition:border-color .14s, color .14s;
+    padding:8px 18px; border-radius:2px; cursor:pointer;
+    font-family:'Source Sans 3',sans-serif; font-size:0.85rem; font-weight:600;
+    transition:border-color .13s, color .13s;
   }
   .btn-back:hover { border-color:var(--navy); color:var(--navy); }
   .btn-restart {
-    background:var(--navy); color:#fff; border:none; padding:9px 22px; border-radius:2px;
-    cursor:pointer; font-family:'Source Sans 3',sans-serif; font-size:0.86rem; font-weight:700; transition:background .14s;
+    background:var(--navy); color:#fff; border:none; padding:8px 20px; border-radius:2px;
+    cursor:pointer; font-family:'Source Sans 3',sans-serif; font-size:0.85rem; font-weight:700; transition:background .13s;
   }
   .btn-restart:hover { background:var(--blue-mid); }
   .btn-sim {
-    background:var(--blue-bright); color:#fff; border:none; padding:9px 22px; border-radius:2px;
-    cursor:pointer; font-family:'Source Sans 3',sans-serif; font-size:0.86rem; font-weight:700;
-    text-decoration:none; display:inline-flex; align-items:center; gap:5px; transition:background .14s;
+    background:var(--blue-bright); color:#fff; border:none; padding:8px 20px; border-radius:2px;
+    cursor:pointer; font-family:'Source Sans 3',sans-serif; font-size:0.85rem; font-weight:700;
+    text-decoration:none; display:inline-flex; align-items:center; gap:5px; transition:background .13s;
   }
   .btn-sim:hover { background:var(--blue-mid); }
 
   /* ─── RESULT HEADER ───────────────────────────────────── */
-  .res-header { background:var(--navy); padding:28px 40px; border-left:5px solid var(--blue-bright); }
+  .res-header { background:var(--navy); padding:26px 40px; border-left:5px solid var(--blue-bright); }
   .res-eyebrow { font-size:0.67rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--gray-blue); margin-bottom:8px; }
-  .res-title { font-family:'Source Serif 4',serif; font-size:1.4rem; font-weight:600; color:#fff; line-height:1.25; }
-  .res-summary { font-size:0.86rem; color:rgba(255,255,255,.7); line-height:1.65; margin-top:10px; font-weight:300; }
+  .res-title   { font-family:'Source Serif 4',serif; font-size:1.35rem; font-weight:600; color:#fff; line-height:1.25; }
+  .res-summary { font-size:0.85rem; color:rgba(255,255,255,.7); line-height:1.65; margin-top:9px; font-weight:300; }
 
   /* ─── RESULT BODY ─────────────────────────────────────── */
-  .res-body { padding:26px 40px; }
+  .res-body { padding:24px 40px; }
   .sec-label {
     font-size:0.67rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em;
     color:var(--blue-bright); margin:22px 0 10px;
@@ -186,124 +168,111 @@
   .sec-label::after { content:''; flex:1; height:1px; background:var(--border); }
   .sec-label:first-child { margin-top:0; }
 
-  /* consolidation notice */
-  .consolidation {
-    background:#FEFBF0; border:1px solid #E0CA60;
-    border-left:4px solid var(--dk-yellow); border-radius:2px;
-    padding:14px 18px; display:flex; gap:12px;
-    font-size:0.85rem; line-height:1.6; color:var(--text);
+  /* Consolidation blocks */
+  .consol-block {
+    border-radius:2px; padding:14px 18px; margin-bottom:10px;
+    display:flex; gap:12px; font-size:0.84rem; line-height:1.6;
   }
-  .consolidation strong { color:var(--navy); }
+  .consol-block p { margin-top:6px; }
+  .consol-block p:first-of-type { margin-top:0; }
+  .consol-icon { font-size:1.05rem; flex-shrink:0; margin-top:1px; }
+  .consol-content { flex:1; }
+  .consol-content strong { color:var(--navy); display:block; margin-bottom:4px; font-size:0.88rem; }
+  .consol-content a { color:var(--blue-bright); }
 
-  /* ⏰ timing deadline box */
-  .timing-card {
-    background:#FFF8E8; border:1px solid #DFC060;
-    border-left:4px solid #C09000; border-radius:2px; overflow:hidden;
+  /* Color variants */
+  .consol-info   { background:#EEF3F9; border:1px solid #C4D2E5; border-left:4px solid var(--blue-bright); }
+  .consol-warn   { background:#FEFBF0; border:1px solid #E0CA60; border-left:4px solid var(--dk-yellow); }
+  .consol-danger { background:#FDF2F2; border:1px solid #E8AAAA; border-left:4px solid var(--salmon); }
+
+  /* Perkins cancellation list */
+  .consol-list {
+    margin:6px 0 6px 18px; font-size:0.82rem; color:var(--text);
+    display:flex; flex-direction:column; gap:3px;
   }
-  .timing-row {
-    display:flex; gap:0; border-bottom:1px solid #DFC060;
-  }
+
+  /* Timing deadlines */
+  .timing-card { border:1px solid #D4B840; border-radius:2px; overflow:hidden; margin-bottom:4px; }
+  .timing-row  { display:flex; border-bottom:1px solid #D4B840; }
   .timing-row:last-child { border-bottom:none; }
   .timing-date {
-    background:#C09000; color:#fff;
-    font-weight:700; font-size:0.78rem; line-height:1.3;
-    padding:12px 14px; min-width:130px; flex-shrink:0;
+    background:#B08800; color:#fff; font-weight:700; font-size:0.77rem;
+    line-height:1.3; padding:12px 14px; min-width:130px; flex-shrink:0;
     display:flex; align-items:center;
   }
-  .timing-desc {
-    padding:12px 16px; font-size:0.82rem; line-height:1.55; color:var(--text);
-  }
+  .timing-desc { padding:12px 16px; font-size:0.82rem; line-height:1.55; color:var(--text); }
   .timing-desc strong { color:var(--navy); }
 
-  /* plan items */
+  /* Plan list */
   .plan-list { display:flex; flex-direction:column; gap:7px; }
   .plan-item {
     background:var(--bg); border:1px solid var(--border);
-    border-radius:2px; padding:12px 16px;
+    border-radius:2px; padding:11px 15px;
     display:flex; justify-content:space-between; align-items:flex-start; gap:10px;
   }
-  .plan-item.plus-highlight { border-color:#B5C4DF; background:#EEF3FA; }
+  .plan-item.plan-hl { border-color:#B5C4DF; background:#EEF3FA; }
   .p-abbr {
     display:inline-block; background:var(--navy); color:#fff;
-    font-size:0.68rem; font-weight:700; padding:1px 6px; border-radius:2px;
+    font-size:0.67rem; font-weight:700; padding:1px 6px; border-radius:2px;
     margin-right:6px; letter-spacing:.04em;
   }
   .p-name { font-weight:700; font-size:0.87rem; color:var(--navy); }
-  .p-sub  { font-size:0.77rem; color:var(--muted); margin-top:3px; line-height:1.45; font-weight:300; }
+  .p-sub  { font-size:0.76rem; color:var(--muted); margin-top:3px; line-height:1.45; font-weight:300; }
   .p-sub em { color:var(--blue-mid); font-style:normal; font-weight:600; }
-  .badge {
-    font-size:0.65rem; font-weight:700; padding:3px 8px; border-radius:2px;
-    white-space:nowrap; flex-shrink:0; text-transform:uppercase; letter-spacing:.05em;
-  }
+  .badge { font-size:0.64rem; font-weight:700; padding:3px 7px; border-radius:2px; white-space:nowrap; flex-shrink:0; text-transform:uppercase; letter-spacing:.05em; }
   .b-active   { background:#E4EEEE; color:var(--teal); }
   .b-expiring { background:#FFF0DC; color:#6B3A00; }
   .b-coming   { background:#EDF4F7; color:#2A6E87; }
   .b-timing   { background:#FFF0DC; color:#6B3A00; }
 
-  /* option cards */
-  .opt-card {
-    background:var(--bg); border:1px solid var(--border);
-    border-left:4px solid var(--periwinkle);
-    border-radius:2px; padding:14px 18px; margin-bottom:9px;
-  }
-  .opt-title { font-weight:700; font-size:0.87rem; color:var(--navy); margin-bottom:5px; }
-  .opt-desc  { font-size:0.81rem; line-height:1.6; color:var(--muted); }
+  /* Option & info cards */
+  .opt-card { background:var(--bg); border:1px solid var(--border); border-left:4px solid var(--periwinkle); border-radius:2px; padding:13px 17px; margin-bottom:9px; }
+  .opt-title { font-weight:700; font-size:0.87rem; color:var(--navy); margin-bottom:4px; }
+  .opt-desc  { font-size:0.8rem; line-height:1.6; color:var(--muted); }
   .opt-desc a { color:var(--blue-bright); }
 
-  /* note & pslf boxes */
-  .note-box {
-    background:#EEF3F9; border:1px solid #C4D2E5; border-radius:2px;
-    padding:13px 16px; font-size:0.79rem; line-height:1.6; color:var(--muted);
-  }
+  .note-box  { background:#EEF3F9; border:1px solid #C4D2E5; border-radius:2px; padding:12px 15px; font-size:0.79rem; line-height:1.6; color:var(--muted); }
   .note-box strong { color:var(--navy); }
   .note-box a { color:var(--blue-bright); }
-  .pslf-box {
-    background:#E8EDF6; border:1px solid #B5C4DF;
-    border-left:4px solid var(--blue-mid); border-radius:2px;
-    padding:13px 16px; font-size:0.81rem; line-height:1.6; color:var(--text);
-  }
+
+  .pslf-box  { background:#E8EDF6; border:1px solid #B5C4DF; border-left:4px solid var(--blue-mid); border-radius:2px; padding:12px 15px; font-size:0.8rem; line-height:1.6; color:var(--text); }
   .pslf-box strong { color:var(--navy); }
   .pslf-box a { color:var(--blue-bright); }
 
   /* ─── FOOTER ──────────────────────────────────────────── */
-  footer {
-    background:var(--navy); text-align:center; padding:16px 20px;
-    font-size:0.71rem; color:var(--gray-mid); letter-spacing:.03em;
-  }
+  footer { background:var(--navy); text-align:center; padding:15px 20px; font-size:0.71rem; color:var(--gray-mid); letter-spacing:.03em; }
   footer a { color:var(--gray-blue); text-decoration:none; }
   footer a:hover { text-decoration:underline; }
 
   /* ─── RESPONSIVE ──────────────────────────────────────── */
-  @media (max-width:600px) {
-    .step-body,.res-body,.res-header,.actions { padding-left:22px; padding-right:22px; }
+  @media (max-width:620px) {
+    .step-body,.res-body,.res-header,.actions { padding-left:20px; padding-right:20px; }
     .q-text { font-size:1.3rem; }
-    .header-inner,.progress-wrap { padding-left:20px; padding-right:20px; }
-    .timing-date { min-width:100px; font-size:0.72rem; }
+    .header-inner,.progress-wrap { padding-left:18px; padding-right:18px; }
+    .timing-date { min-width:90px; font-size:0.72rem; }
   }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="header-inner">
     <div class="brand-i" aria-hidden="true">
       <div class="bar"></div><div class="stem"></div><div class="bar"></div>
     </div>
-    <div class="header-text">
-      <div class="title">Student Loan Repayment Wizard</div>
-      <div class="sub">University of Illinois System · 2025–2026</div>
-      <div class="attribution">
-        Adapted from information provided by
-        <a href="https://www.accesslex.org/sites/default/files/2026-01/student-loan-repayment-strategy-worksheet-1125.pdf"
-           target="_blank" rel="noopener">AccessLex Institute®</a>
-      </div>
+    <div>
+      <div class="hdr-title">Student Loan Repayment Wizard</div>
+      <div class="hdr-sub">University of Illinois System · 2025–2026</div>
+      <div class="hdr-attr">Adapted from information provided by <a href="https://www.accesslex.org/sites/default/files/2026-01/student-loan-repayment-strategy-worksheet-1125.pdf" target="_blank" rel="noopener">AccessLex Institute®</a></div>
     </div>
   </div>
 </header>
 
+<!-- PROGRESS -->
 <div class="progress-wrap">
   <div class="progress-bg"><div class="progress-fill" id="pFill"></div></div>
-  <div class="progress-label" id="pLabel">Step 1 of ~5</div>
+  <div class="progress-lbl" id="pLabel">Step 1 of ~5</div>
 </div>
 
 <main>
@@ -319,350 +288,218 @@
 
 <script>
 // ─────────────────────────────────────────────────────────
-//  PARENT PLUS QUESTION FACTORY
-//  Creates consistent Parent PLUS question nodes,
-//  with different next-result IDs depending on context.
+//  STATE
 // ─────────────────────────────────────────────────────────
 
-function plusQ(hasFfelp, resultYes, resultNo) {
-  return {
-    q: hasFfelp
-      ? 'Do you also have Parent PLUS Loans?'
-      : 'Do you have any Parent PLUS Loans?',
-    hint: 'Parent PLUS Loans are Direct Loans, but unlike other Direct Loans they must be consolidated into a Direct Consolidation Loan before they can access income-driven repayment plans or qualify for PSLF. If you have <strong>Grad PLUS Loans</strong>, those are already fully eligible for IDR and PSLF without consolidation.',
-    hasGradPlusNote: true,
+let state = {
+  newLoans:   null,   // bool
+  pslf:       null,   // bool
+  goal:       null,   // 'payoff' | 'minimize'
+  loanTypes:  null,   // 'direct'|'ffelp'|'perkins'|'plus'|'ffelp_perkins'|'ffelp_plus'|'perkins_plus'|'all_three'
+  ffelpHeld:  null,   // 'federal' | 'private' | 'unsure'
+};
+
+let history = [];   // [{questionId, answerLabel, stateBefore}]
+
+// Helpers
+const HAS_FFELP   = t => ['ffelp','ffelp_perkins','ffelp_plus','all_three'].includes(t);
+const HAS_PERKINS = t => ['perkins','ffelp_perkins','perkins_plus','all_three'].includes(t);
+const HAS_PLUS    = t => ['plus','ffelp_plus','perkins_plus','all_three'].includes(t);
+
+function nextQ() {
+  if (state.newLoans  === null) return 'newLoans';
+  if (state.pslf      === null) return 'pslf';
+  if (!state.pslf && state.goal === null) return 'goal';
+  if (state.goal === 'payoff')  return 'RESULT';
+  if (state.loanTypes === null) return 'loanTypes';
+  if (HAS_FFELP(state.loanTypes) && state.ffelpHeld === null) return 'ffelpHeld';
+  return 'RESULT';
+}
+
+// ─────────────────────────────────────────────────────────
+//  QUESTION DEFINITIONS
+// ─────────────────────────────────────────────────────────
+
+const QUESTIONS = {
+
+  newLoans: {
+    q:    'Are you taking any federal student loans on or after July 1, 2026?',
+    hint: 'This includes new Direct Loans you will receive for upcoming enrollment periods.',
     choices: [
-      { label: 'Yes — I have Parent PLUS Loans',
-        sub:  'Loans taken out by a parent to pay for a dependent student\'s education',
-        icon: 'i-yes', letter: 'Yes',
-        next: { id: resultYes, type: 'result' }
-      },
-      { label: 'No — I do not have Parent PLUS Loans',
-        icon: 'i-no', letter: 'No',
-        next: { id: resultNo, type: 'result' }
-      }
+      { label:'No', sub:'All my loans were disbursed before July 1, 2026',
+        icon:'i-no', letter:'No', act: () => state.newLoans = false },
+      { label:'Yes', sub:'I have or will have loans disbursed on or after July 1, 2026',
+        icon:'i-yes', letter:'Yes', act: () => state.newLoans = true },
     ]
-  };
+  },
+
+  pslf: {
+    q:    'Are you pursuing Public Service Loan Forgiveness (PSLF)?',
+    hint: 'PSLF forgives remaining federal loan balances after 10 years (120 qualifying payments) while working full-time for a qualifying public service employer.',
+    choices: [
+      { label:'Yes — I plan to pursue PSLF',     icon:'i-yes', letter:'Yes', act: () => state.pslf = true  },
+      { label:'No — I am not pursuing PSLF',     icon:'i-no',  letter:'No',  act: () => state.pslf = false },
+    ]
+  },
+
+  goal: {
+    q:    'What is your primary repayment goal?',
+    hint: 'Choose the outcome that matters most to you right now.',
+    choices: [
+      { label:'Pay off / pay down loans as fast as possible',
+        sub:'Minimize total interest paid over the life of the loan',
+        icon:'i-a', letter:'Pay Off', act: () => state.goal = 'payoff' },
+      { label:'Minimize my monthly payment',
+        sub:'Keep payments as affordable as possible right now',
+        icon:'i-b', letter:'Minimize', act: () => state.goal = 'minimize' },
+    ]
+  },
+
+  loanTypes: {
+    q:    'Which of the following best describes your federal loan portfolio?',
+    hint: 'Select the option that covers <strong>all</strong> federal loans you hold. <strong>Grad PLUS Loans are Direct Loans</strong> — if you only have Grad PLUS and other Direct Loans, select "Direct Loans only."',
+    gradNote: true,
+    choices: [
+      { label:'Direct Loans only',
+        sub:'Includes Direct Subsidized, Unsubsidized, and Grad PLUS — no FFELP, Perkins, or Parent PLUS',
+        icon:'i-a', letter:'Direct',
+        act: () => state.loanTypes = 'direct' },
+      { label:'FFELP Loans only',
+        sub:'Federal Family Education Loans held federally or by a private lender — no Perkins or Parent PLUS',
+        icon:'i-b', letter:'FFELP',
+        act: () => state.loanTypes = 'ffelp' },
+      { label:'Perkins Loans only',
+        sub:'Federal Perkins Loans administered through your school — no FFELP or Parent PLUS',
+        icon:'i-c', letter:'Perkins',
+        act: () => state.loanTypes = 'perkins' },
+      { label:'Parent PLUS Loans only',
+        sub:'Direct PLUS Loans taken out by a parent for a dependent student — no FFELP or Perkins',
+        icon:'i-d', letter:'Parent PLUS',
+        act: () => state.loanTypes = 'plus' },
+      { label:'FFELP + Perkins Loans',
+        sub:'Both FFELP and Perkins Loans — no Parent PLUS',
+        icon:'i-b', letter:'FFELP+Perkins',
+        act: () => state.loanTypes = 'ffelp_perkins' },
+      { label:'FFELP + Parent PLUS Loans',
+        sub:'Both FFELP and Parent PLUS Loans — no Perkins',
+        icon:'i-b', letter:'FFELP+Parent PLUS',
+        act: () => state.loanTypes = 'ffelp_plus' },
+      { label:'Perkins + Parent PLUS Loans',
+        sub:'Both Perkins and Parent PLUS Loans — no FFELP',
+        icon:'i-c', letter:'Perkins+Parent PLUS',
+        act: () => state.loanTypes = 'perkins_plus' },
+      { label:'FFELP + Perkins + Parent PLUS Loans',
+        sub:'All three non-Direct loan types',
+        icon:'i-e', letter:'All Three',
+        act: () => state.loanTypes = 'all_three' },
+    ]
+  },
+
+  ffelpHeld: {
+    q:    'Are your FFELP Loans federally or privately held?',
+    hint: 'FFELP loans disbursed before 2010 may be held by the federal government or by a private bank or lender. This affects whether you currently have IDR access and your path to PSLF.',
+    checkNote: true,
+    choices: [
+      { label:'Federally held',
+        sub:'Serviced by MOHELA, Aidvantage, Nelnet, EdFinancial, or another federal servicer',
+        icon:'i-a', letter:'Federal',
+        act: () => state.ffelpHeld = 'federal' },
+      { label:'Privately held',
+        sub:'Held by a private bank, credit union, or lender',
+        icon:'i-b', letter:'Private',
+        act: () => state.ffelpHeld = 'private' },
+      { label:"I'm not sure",
+        sub:'I need guidance on how to check',
+        icon:'i-c', letter:'Unsure',
+        act: () => state.ffelpHeld = 'unsure' },
+    ]
+  },
+
+};
+
+// ─────────────────────────────────────────────────────────
+//  NAVIGATION
+// ─────────────────────────────────────────────────────────
+
+function choose(idx) {
+  const qId = nextQ();
+  const c = QUESTIONS[qId].choices[idx];
+  history.push({ qId, label: c.letter, stateBefore: {...state} });
+  c.act();
+  render(); scrollTop();
 }
 
-// ─────────────────────────────────────────────────────────
-//  DECISION TREE
-// ─────────────────────────────────────────────────────────
-
-const TREE = {
-  id:'root',
-  q:'Are you taking any federal student loans on or after July 1, 2026?',
-  hint:'This includes new Direct Loans you will receive for upcoming enrollment periods.',
-  choices:[
-    // ── PRE-JULY 2026 LOANS ──────────────────────────────
-    { label:'No', sub:'All my loans were taken before July 1, 2026',
-      icon:'i-no', letter:'No',
-      next:{
-        id:'pslf_old', q:'Are you pursuing Public Service Loan Forgiveness (PSLF)?',
-        hint:'PSLF forgives remaining balances after 10 years (120 qualifying payments) while working full-time for a qualifying public service employer.',
-        choices:[
-          // ── Old + PSLF ──
-          { label:'Yes — I plan to pursue PSLF', icon:'i-yes', letter:'Yes',
-            next:{ id:'ffelp_op',
-              q:'Do you have any FFELP or Perkins Loans?',
-              hint:'FFELP (Federal Family Education Loan Program) and Perkins Loans are older loan types not directly eligible for PSLF or most IDR plans without first consolidating into a Direct Consolidation Loan.',
-              choices:[
-                { label:'Yes — I have FFELP or Perkins Loans', icon:'i-yes', letter:'Yes',
-                  next: plusQ(true,  'result_old_pslf_ffelp_plus', 'result_old_pslf_ffelp') },
-                { label:'No — I only have Direct Loans',        icon:'i-no',  letter:'No',
-                  next: plusQ(false, 'result_old_pslf_direct_plus', 'result_old_pslf_nodirect') }
-              ]
-            }
-          },
-          // ── Old + No PSLF ──
-          { label:'No — I am not pursuing PSLF', icon:'i-no', letter:'No',
-            next:{ id:'goal_old', q:'What is your primary repayment goal?',
-              hint:'Choose the outcome that matters most to you right now.',
-              choices:[
-                { label:'Pay off / pay down loans as fast as possible',
-                  sub:'Minimize total interest paid over the life of the loan',
-                  icon:'i-a', letter:'Pay Off',
-                  next:{ id:'result_payoff', type:'result' }
-                },
-                { label:'Minimize my monthly payment',
-                  sub:'Keep payments as affordable as possible right now',
-                  icon:'i-b', letter:'Minimize',
-                  next:{ id:'ffelp_on',
-                    q:'Do you have any FFELP or Perkins Loans?',
-                    hint:'These older loan types may need to be consolidated before you can access most Income-Driven Repayment plans.',
-                    choices:[
-                      { label:'Yes — I have FFELP or Perkins Loans', icon:'i-yes', letter:'Yes',
-                        next: plusQ(true,  'result_old_nopslf_ffelp_plus', 'result_old_nopslf_ffelp') },
-                      { label:'No — I only have Direct Loans',        icon:'i-no',  letter:'No',
-                        next: plusQ(false, 'result_old_nopslf_direct_plus', 'result_old_nopslf_direct') }
-                    ]
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
-
-    // ── POST-JULY 2026 LOANS ─────────────────────────────
-    { label:'Yes', sub:'I have or will have loans disbursed on/after July 1, 2026',
-      icon:'i-yes', letter:'Yes',
-      next:{
-        id:'pslf_new', q:'Are you pursuing Public Service Loan Forgiveness (PSLF)?',
-        hint:'PSLF forgives remaining balances after 10 years (120 qualifying payments) while working full-time for a qualifying public service employer.',
-        choices:[
-          // ── New + No PSLF ──
-          { label:'No — I am not pursuing PSLF', icon:'i-no', letter:'No',
-            next:{ id:'goal_new', q:'What is your primary repayment goal?',
-              hint:'Choose the outcome that matters most to you right now.',
-              choices:[
-                { label:'Pay off / pay down loans as fast as possible',
-                  sub:'Minimize total interest paid over the life of the loan',
-                  icon:'i-a', letter:'Pay Off',
-                  next:{ id:'result_payoff', type:'result' }
-                },
-                { label:'Minimize my monthly payment',
-                  sub:'Keep payments as affordable as possible right now',
-                  icon:'i-b', letter:'Minimize',
-                  next:{ id:'ffelp_nn',
-                    q:'Do you have any FFELP or Perkins Loans?',
-                    hint:'These older loan types may need to be consolidated before you can access most Income-Driven Repayment plans.',
-                    choices:[
-                      { label:'Yes — I have FFELP or Perkins Loans', icon:'i-yes', letter:'Yes',
-                        next: plusQ(true,  'result_new_nopslf_ffelp_plus', 'result_new_nopslf_ffelp') },
-                      { label:'No — I only have Direct Loans',        icon:'i-no',  letter:'No',
-                        next: plusQ(false, 'result_new_nopslf_direct_plus', 'result_new_nopslf_direct') }
-                    ]
-                  }
-                }
-              ]
-            }
-          },
-          // ── New + PSLF ──
-          { label:'Yes — I plan to pursue PSLF', icon:'i-yes', letter:'Yes',
-            next:{ id:'ffelp_np',
-              q:'Do you have any FFELP or Perkins Loans?',
-              hint:'FFELP and Perkins Loans must typically be consolidated into a Direct Consolidation Loan to qualify for PSLF.',
-              choices:[
-                { label:'No — I only have Direct Loans',        icon:'i-no',  letter:'No',
-                  next: plusQ(false, 'result_new_pslf_direct_plus', 'result_new_pslf_direct') },
-                { label:'Yes — I have FFELP or Perkins Loans', icon:'i-yes', letter:'Yes',
-                  next: plusQ(true,  'result_new_pslf_ffelp_plus', 'result_new_pslf_ffelp') }
-              ]
-            }
-          }
-        ]
-      }
-    }
-  ]
-};
-
-// ─────────────────────────────────────────────────────────
-//  PLAN DATA
-// ─────────────────────────────────────────────────────────
-
-// Standard full IDR menu (pre-July 2026 loans)
-const FULL_IDR = [
-  { abbr:'PAYE', name:'Pay As You Earn',             sub:'Payments capped at 10% of discretionary income.',                                                     badge:'b-expiring', bl:'Until July 2028' },
-  { abbr:'ICR',  name:'Income-Contingent Repayment', sub:'Payments at 20% of discretionary income or the fixed 12-year amount, whichever is less.',             badge:'b-expiring', bl:'Until July 2028' },
-  { abbr:'IBR',  name:'Income-Based Repayment',      sub:'Payments capped at 10–15% of discretionary income depending on when you first borrowed.',             badge:'b-active',   bl:'Available' },
-  { abbr:'RAP',  name:'Repayment Assistance Plan',   sub:'No payment cap — monthly payment may be higher than Standard Repayment. Run your numbers carefully.', badge:'b-coming',   bl:'When Launched' },
-];
-
-// Full IDR menu with Parent PLUS timing notes on IBR and ICR
-const FULL_IDR_PLUS = [
-  { abbr:'PAYE', name:'Pay As You Earn',             sub:'Payments capped at 10% of discretionary income.',                                                     badge:'b-expiring', bl:'Until July 2028' },
-  { abbr:'ICR',  name:'Income-Contingent Repayment', sub:'<em>Primary IDR pathway for Parent PLUS after consolidation.</em> Payments at 20% of discretionary income or fixed 12-year amount. Must make at least one qualifying payment before the 2027 deadline.', badge:'b-expiring', bl:'Until July 2028', highlight: true },
-  { abbr:'IBR',  name:'Income-Based Repayment',      sub:'<em>Only available if consolidation loan is disbursed before July 1, 2026.</em> Payments capped at 10–15% of discretionary income.',                badge:'b-timing',   bl:'Before July 1, 2026' },
-  { abbr:'RAP',  name:'Repayment Assistance Plan',   sub:'No payment cap — monthly payment may be higher than Standard Repayment. Run your numbers carefully.', badge:'b-coming',   bl:'When Launched' },
-];
-
-// RAP only (post-July 2026 loans)
-const RAP_ONLY = [
-  { abbr:'RAP',  name:'Repayment Assistance Plan',   sub:'No payment cap — monthly payment may be higher than Standard Repayment. Check your numbers carefully before enrolling.', badge:'b-coming', bl:'When Launched' },
-];
-
-// ─────────────────────────────────────────────────────────
-//  RESULTS
-// ─────────────────────────────────────────────────────────
-
-const RESULTS = {
-
-  // ── Pay-off goal (all loan dates) ─────────────────────
-  result_payoff: {
-    title: 'Goal: Pay Off Loans as Quickly as Possible',
-    summary: 'Prioritizing speed means paying more than the minimum each month. Here are the main strategies and trade-offs to consider.',
-    payoff: true
-  },
-
-  // ── PRE-JULY 2026 · PSLF · no Parent PLUS ────────────
-  result_old_pslf_ffelp: {
-    title: 'PSLF Path · Pre-July 2026 · FFELP/Perkins Present',
-    summary: 'Your FFELP or Perkins Loans must be consolidated into a Direct Consolidation Loan before you can access PSLF-eligible repayment plans.',
-    consolidate:true, consolidateMsg:'ffelp', plans:FULL_IDR, pslf:true
-  },
-  result_old_pslf_nodirect: {
-    title: 'PSLF Path · Pre-July 2026 · Direct Loans Only',
-    summary: 'Your Direct Loans are already PSLF-eligible. Enroll in an income-driven repayment plan below to qualify while managing monthly costs.',
-    consolidate:false, plans:FULL_IDR, pslf:true
-  },
-
-  // ── PRE-JULY 2026 · PSLF · with Parent PLUS ──────────
-  result_old_pslf_ffelp_plus: {
-    title: 'PSLF Path · Pre-July 2026 · FFELP/Perkins + Parent PLUS',
-    summary: 'Both your FFELP/Perkins and Parent PLUS Loans require consolidation into a Direct Consolidation Loan. Timing is critical — act before key deadlines below.',
-    consolidate:true, consolidateMsg:'both', plans:FULL_IDR_PLUS, pslf:true, parentPlus:true, oldLoans:true
-  },
-  result_old_pslf_direct_plus: {
-    title: 'PSLF Path · Pre-July 2026 · Parent PLUS Loans',
-    summary: 'Your Parent PLUS Loans must be consolidated into a Direct Consolidation Loan before they can access IDR plans or qualify for PSLF. Timing is critical.',
-    consolidate:true, consolidateMsg:'plus', plans:FULL_IDR_PLUS, pslf:true, parentPlus:true, oldLoans:true
-  },
-
-  // ── PRE-JULY 2026 · No PSLF · Minimize · no Parent PLUS
-  result_old_nopslf_ffelp: {
-    title: 'Minimize Payment · Pre-July 2026 · FFELP/Perkins Present',
-    summary: 'To access Income-Driven Repayment plans you must first consolidate your FFELP or Perkins Loans into a Direct Consolidation Loan.',
-    consolidate:true, consolidateMsg:'ffelp', plans:FULL_IDR, pslf:false
-  },
-  result_old_nopslf_direct: {
-    title: 'Minimize Payment · Pre-July 2026 · Direct Loans Only',
-    summary: 'Your Direct Loans are already eligible for income-driven repayment. Compare the plans below to find the lowest payment for your income and family size.',
-    consolidate:false, plans:FULL_IDR, pslf:false
-  },
-
-  // ── PRE-JULY 2026 · No PSLF · Minimize · with Parent PLUS
-  result_old_nopslf_ffelp_plus: {
-    title: 'Minimize Payment · Pre-July 2026 · FFELP/Perkins + Parent PLUS',
-    summary: 'Both your FFELP/Perkins and Parent PLUS Loans require consolidation into a Direct Consolidation Loan. Timing is critical for preserving your IDR options.',
-    consolidate:true, consolidateMsg:'both', plans:FULL_IDR_PLUS, pslf:false, parentPlus:true, oldLoans:true
-  },
-  result_old_nopslf_direct_plus: {
-    title: 'Minimize Payment · Pre-July 2026 · Parent PLUS Loans',
-    summary: 'Your Parent PLUS Loans must be consolidated before you can access income-driven repayment plans. Timing is critical for preserving your full menu of options.',
-    consolidate:true, consolidateMsg:'plus', plans:FULL_IDR_PLUS, pslf:false, parentPlus:true, oldLoans:true
-  },
-
-  // ── POST-JULY 2026 · No PSLF · no Parent PLUS ─────────
-  result_new_nopslf_ffelp: {
-    title: 'Minimize Payment · Post-July 2026 · FFELP/Perkins Present',
-    summary: 'For loans on or after July 1, 2026, RAP is the primary income-driven option. You will also need to consolidate any FFELP or Perkins Loans first.',
-    consolidate:true, consolidateMsg:'ffelp', plans:RAP_ONLY, pslf:false
-  },
-  result_new_nopslf_direct: {
-    title: 'Minimize Payment · Post-July 2026 · Direct Loans Only',
-    summary: 'For loans taken on or after July 1, 2026, the Repayment Assistance Plan (RAP) is the primary income-driven option available.',
-    consolidate:false, plans:RAP_ONLY, pslf:false
-  },
-
-  // ── POST-JULY 2026 · No PSLF · with Parent PLUS ───────
-  result_new_nopslf_ffelp_plus: {
-    title: 'Minimize Payment · Post-July 2026 · FFELP/Perkins + Parent PLUS',
-    summary: 'Both your FFELP/Perkins and Parent PLUS Loans require consolidation. For loans on or after July 1, 2026, RAP is the primary income-driven option after consolidation.',
-    consolidate:true, consolidateMsg:'both', plans:RAP_ONLY, pslf:false, parentPlus:true, oldLoans:false
-  },
-  result_new_nopslf_direct_plus: {
-    title: 'Minimize Payment · Post-July 2026 · Parent PLUS Loans',
-    summary: 'Your Parent PLUS Loans must be consolidated before accessing IDR plans. For loans on or after July 1, 2026, RAP is the primary income-driven option available.',
-    consolidate:true, consolidateMsg:'plus', plans:RAP_ONLY, pslf:false, parentPlus:true, oldLoans:false
-  },
-
-  // ── POST-JULY 2026 · PSLF · no Parent PLUS ────────────
-  result_new_pslf_direct: {
-    title: 'PSLF Path · Post-July 2026 · Direct Loans Only',
-    summary: 'For loans on or after July 1, 2026, RAP is the PSLF-eligible income-driven repayment plan.',
-    consolidate:false, plans:RAP_ONLY, pslf:true
-  },
-  result_new_pslf_ffelp: {
-    title: 'PSLF Path · Post-July 2026 · FFELP/Perkins Present',
-    summary: 'You will need to consolidate your FFELP or Perkins Loans first. For new loans (on/after July 1, 2026), only RAP is available as a PSLF-eligible income-driven plan.',
-    consolidate:true, consolidateMsg:'ffelp', plans:RAP_ONLY, pslf:true
-  },
-
-  // ── POST-JULY 2026 · PSLF · with Parent PLUS ──────────
-  result_new_pslf_direct_plus: {
-    title: 'PSLF Path · Post-July 2026 · Parent PLUS Loans',
-    summary: 'Your Parent PLUS Loans require consolidation. For loans on or after July 1, 2026, RAP is the PSLF-eligible income-driven plan available after consolidation.',
-    consolidate:true, consolidateMsg:'plus', plans:RAP_ONLY, pslf:true, parentPlus:true, oldLoans:false
-  },
-  result_new_pslf_ffelp_plus: {
-    title: 'PSLF Path · Post-July 2026 · FFELP/Perkins + Parent PLUS',
-    summary: 'Both your FFELP/Perkins and Parent PLUS Loans require consolidation. For loans on or after July 1, 2026, only RAP is available as a PSLF-eligible IDR plan.',
-    consolidate:true, consolidateMsg:'both', plans:RAP_ONLY, pslf:true, parentPlus:true, oldLoans:false
-  }
-};
-
-// ─────────────────────────────────────────────────────────
-//  CONSOLIDATION MESSAGE TEMPLATES
-// ─────────────────────────────────────────────────────────
-
-const CONSOLIDATE_MSG = {
-  ffelp: 'Your <strong>FFELP and/or Perkins Loans</strong> must be consolidated into a Direct Consolidation Loan before you can access the repayment plans below. Consolidation can affect your payment count history and effective interest rate — weigh the pros and cons before proceeding.',
-  plus:  'Your <strong>Parent PLUS Loans</strong> must be consolidated into a Direct Consolidation Loan before they can access income-driven repayment plans or qualify for PSLF. Note that Parent PLUS Loans are Direct Loans and would not otherwise need consolidation — this consolidation is specifically required to unlock IDR/PSLF access.',
-  both:  'Both your <strong>FFELP/Perkins Loans</strong> and your <strong>Parent PLUS Loans</strong> require consolidation into a Direct Consolidation Loan before they can access IDR plans or PSLF. These can typically be combined into a single consolidation. Review timing deadlines carefully below before proceeding.'
-};
-
-// ─────────────────────────────────────────────────────────
-//  STATE & NAVIGATION
-// ─────────────────────────────────────────────────────────
-
-let history = [];
-
-function current() { return history.length ? history[history.length-1].node : TREE; }
-
-function choose(i) {
-  const c = current().choices[i];
-  history.push({ node: c.next, letter: c.letter });
-  render(); scroll();
+function back() {
+  if (!history.length) return;
+  const last = history.pop();
+  state = {...last.stateBefore};
+  render(); scrollTop();
 }
-function back()    { if (history.length) history.pop(); render(); scroll(); }
-function restart() { history = []; render(); scroll(); }
-function scroll()  { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+function restart() {
+  history = [];
+  state = { newLoans:null, pslf:null, goal:null, loanTypes:null, ffelpHeld:null };
+  render(); scrollTop();
+}
+
+function scrollTop() { window.scrollTo({ top:0, behavior:'smooth' }); }
 
 // ─────────────────────────────────────────────────────────
-//  RENDER
+//  RENDER CONTROLLER
 // ─────────────────────────────────────────────────────────
 
 function render() {
-  const node = current();
-  const d = history.length;
-  const maxSteps = 5; // loan date > PSLF > goal > FFELP > Parent PLUS
-  const pct = node.type === 'result' ? 100 : Math.min(Math.round(d / maxSteps * 100), 90);
+  const qId = nextQ();
+  const step = history.length + 1;
+  const maxSteps = 5;
+  const pct = qId === 'RESULT' ? 100 : Math.min(Math.round((step - 1) / maxSteps * 100), 88);
   document.getElementById('pFill').style.width = pct + '%';
-  document.getElementById('pLabel').textContent = node.type === 'result' ? 'Complete' : `Step ${d + 1} of ~${maxSteps}`;
+  document.getElementById('pLabel').textContent = qId === 'RESULT' ? 'Complete' : `Step ${step} of ~${maxSteps}`;
 
-  const bc = document.getElementById('breadcrumb');
-  bc.innerHTML = history.map((h, i) =>
-    `<span class="crumb"><span class="ans">${h.letter}</span>${i < history.length - 1 ? '<span class="crumb-sep">›</span>' : ''}</span>`
+  // Breadcrumb
+  document.getElementById('breadcrumb').innerHTML = history.map((h, i) =>
+    `<span class="crumb"><span class="ans">${h.label}</span>${i < history.length - 1 ? '<span class="crumb-sep">›</span>' : ''}</span>`
   ).join('');
 
-  node.type === 'result' ? renderResult(node.id) : renderQuestion(node);
+  qId === 'RESULT' ? renderResult() : renderQuestion(QUESTIONS[qId], step);
 }
 
-function renderQuestion(node) {
+// ─────────────────────────────────────────────────────────
+//  RENDER QUESTION
+// ─────────────────────────────────────────────────────────
+
+function renderQuestion(q, step) {
   const app = document.getElementById('app');
   app.innerHTML = '';
 
-  // Grad PLUS clarifying note (shown on Parent PLUS question nodes)
-  const gradNote = node.hasGradPlusNote ? `
-    <div class="grad-plus-note">
-      <strong>Note on Grad PLUS Loans:</strong> Grad PLUS Loans are Direct Loans and are already fully eligible for IDR plans and PSLF without consolidation. If you only have Grad PLUS Loans (in addition to other Direct Loans), select "No" below.
-    </div>
-  ` : '';
+  const gradNoteHtml = q.gradNote ? `
+    <div class="grad-note">
+      <strong>Note on Grad PLUS Loans:</strong> Graduate PLUS Loans are Direct Loans and are already fully eligible for IDR plans and PSLF without any consolidation. If you have Grad PLUS Loans alongside other Direct Loans — but no FFELP, Perkins, or Parent PLUS — select "Direct Loans only."
+    </div>` : '';
+
+  const checkNoteHtml = q.checkNote ? `
+    <div class="check-note">
+      <strong>How to check:</strong> Log in to <a href="https://studentaid.gov" target="_blank" rel="noopener">StudentAid.gov</a> with your FSA ID and select "My Aid." Look at the servicer listed for your FFELP Loans. Federal servicers include MOHELA, Aidvantage, Nelnet, and EdFinancial. If the servicer is a private bank or lender (e.g. Sallie Mae, Navient for pre-2014 loans), they are privately held.
+    </div>` : '';
 
   const card = document.createElement('div');
   card.className = 'step-card';
   card.innerHTML = `
     <div class="step-body">
-      <div class="eyebrow">Question ${history.length + 1}</div>
-      <div class="q-text">${node.q}</div>
-      ${node.hint ? `<div class="q-hint">${node.hint}</div>` : ''}
-      ${gradNote}
+      <div class="eyebrow">Question ${step}</div>
+      <div class="q-text">${q.q}</div>
+      ${q.hint ? `<div class="q-hint">${q.hint}</div>` : ''}
+      ${checkNoteHtml}
+      ${gradNoteHtml}
       <div class="choices">
-        ${node.choices.map((c, i) => `
+        ${q.choices.map((c, i) => `
           <button class="choice" onclick="choose(${i})">
-            <div class="c-icon ${c.icon}">${c.letter==='Yes'?'✓':c.letter==='No'?'✕':i===0?'A':'B'}</div>
+            <div class="c-icon ${c.icon}">
+              ${c.letter === 'Yes' ? '✓' : c.letter === 'No' ? '✕' :
+                c.letter === 'Federal' ? 'F' : c.letter === 'Private' ? 'P' : c.letter === 'Unsure' ? '?' :
+                c.letter === 'Direct' ? 'D' : c.letter === 'FFELP' ? 'F' : c.letter === 'Perkins' ? 'P' :
+                c.letter === 'Parent PLUS' ? '+' : c.letter === 'Pay Off' ? 'A' : c.letter === 'Minimize' ? 'B' : i + 1}
+            </div>
             <div class="c-label">
               <div class="c-main">${c.label}</div>
               ${c.sub ? `<div class="c-sub">${c.sub}</div>` : ''}
@@ -677,104 +514,42 @@ function renderQuestion(node) {
   app.appendChild(card);
 }
 
-function renderResult(id) {
-  const r = RESULTS[id];
+// ─────────────────────────────────────────────────────────
+//  RENDER RESULT (flags-based dynamic assembly)
+// ─────────────────────────────────────────────────────────
+
+function renderResult() {
+  const lt = state.loanTypes || 'direct';
+  const f = {
+    newLoans:    state.newLoans,
+    pslf:        state.pslf,
+    payoff:      state.goal === 'payoff',
+    hasFfelp:    HAS_FFELP(lt),
+    hasPerkins:  HAS_PERKINS(lt),
+    hasParentPlus: HAS_PLUS(lt),
+    ffelpFederal:  state.ffelpHeld === 'federal',
+    ffelpPrivate:  state.ffelpHeld === 'private',
+    ffelpUnsure:   state.ffelpHeld === 'unsure',
+  };
+
   const app = document.getElementById('app');
   app.innerHTML = '';
-
-  // ── Consolidation block ──
-  const consolidateHtml = r.consolidate ? `
-    <div class="sec-label">First Step Required</div>
-    <div class="consolidation">
-      <span style="font-size:1.05rem;flex-shrink:0;margin-top:1px;">⚠</span>
-      <div>${CONSOLIDATE_MSG[r.consolidateMsg]}</div>
-    </div>
-  ` : '';
-
-  // ── Parent PLUS timing deadlines (old loans only) ──
-  const timingHtml = (r.parentPlus && r.oldLoans) ? `
-    <div class="sec-label">⏰ Critical Timing Deadlines</div>
-    <div class="timing-card">
-      <div class="timing-row">
-        <div class="timing-date">Before<br>July 1, 2026</div>
-        <div class="timing-desc">Your consolidation loan must be <strong>disbursed before this date</strong> for the consolidated loan to remain eligible for IBR. If you miss this deadline, IBR will no longer be available and RAP will be your primary income-driven option.</div>
-      </div>
-      <div class="timing-row">
-        <div class="timing-date">Before<br>2027 Deadline</div>
-        <div class="timing-desc">Parent PLUS borrowers must make <strong>at least one qualifying payment in ICR</strong> before the 2027 program deadline to preserve access to ICR and its associated forgiveness pathway. Waiting too long may forfeit this option.</div>
-      </div>
-    </div>
-  ` : '';
-
-  // ── Parent PLUS note for NEW loans (timing less acute but still relevant for any older balances) ──
-  const plusNewNoteHtml = (r.parentPlus && !r.oldLoans) ? `
-    <div class="note-box" style="margin-top:0;margin-bottom:0;">
-      <strong>Parent PLUS Note:</strong> For loans on or after July 1, 2026, IBR and ICR are not available regardless of consolidation timing. However, if you also hold <em>any</em> Parent PLUS Loans disbursed before July 1, 2026 that have not yet been consolidated, be aware that: (1) consolidation must be disbursed before July 1, 2026 for IBR eligibility on those older loans, and (2) at least one qualifying ICR payment must be made before the 2027 deadline. Speak with a financial coach to coordinate timing.
-    </div>
-  ` : '';
-
-  // ── IDR Plans ──
-  const pslfLabel = r.pslf ? 'Available PSLF-Eligible IDR Plans' : 'Available Income-Driven Repayment (IDR) Plans';
-  const plansHtml = r.plans ? `
-    <div class="sec-label">${pslfLabel}</div>
-    <div class="plan-list">
-      ${r.plans.map(p => `
-        <div class="plan-item${p.highlight ? ' plus-highlight' : ''}">
-          <div>
-            <div class="p-name"><span class="p-abbr">${p.abbr}</span>${p.name}</div>
-            <div class="p-sub">${p.sub}</div>
-          </div>
-          <span class="badge ${p.badge}">${p.bl}</span>
-        </div>
-      `).join('')}
-    </div>
-    ${r.plans.length > 1 ? `
-    <div class="note-box" style="margin-top:10px;">
-      <strong>Note:</strong> ${r.parentPlus
-        ? 'IBR, PAYE, ICR, and RAP may yield different monthly payment amounts depending on your income, family size, and the age of your oldest loans. The highlighted ICR option is the primary pathway for Parent PLUS borrowers, but you should compare all options you are eligible for. Use the Loan Simulator below to run your numbers.'
-        : 'IBR, PAYE, and RAP may yield different monthly payment amounts depending on your income and the age of your oldest loans. Compare your numbers to determine the lowest payment option for your situation.'}
-    </div>` : ''}
-  ` : '';
-
-  // ── Pay-off options ──
-  const payoffHtml = r.payoff ? `
-    <div class="sec-label">Options &amp; Considerations</div>
-    <div class="opt-card">
-      <div class="opt-title">Standard Repayment + Additional Principal Payments</div>
-      <div class="opt-desc">Enroll in the Standard 10-Year Repayment Plan and pay more than the required monthly amount. Contact your servicer and request that extra payments be applied to your <em>principal balance</em> — not toward future interest. <a href="https://powerpay.org" target="_blank" rel="noopener">PowerPay.org</a> can help you model repayment strategies that minimize total interest paid.</div>
-    </div>
-    <div class="opt-card">
-      <div class="opt-title">Refinancing with a Private Loan</div>
-      <div class="opt-desc">Refinancing to a lower interest rate can reduce total cost, but you will <strong style="color:var(--navy);">permanently lose all federal benefits</strong> — including IDR plans, PSLF eligibility, and federal deferment/forbearance protections. Weigh this trade-off carefully before refinancing any federal loans.</div>
-    </div>
-  ` : '';
-
-  // ── PSLF reminder ──
-  const pslfHtml = r.pslf ? `
-    <div class="pslf-box" style="margin-top:12px;">
-      <strong>PSLF Reminder:</strong> To qualify, you must make 120 qualifying monthly payments under a qualifying repayment plan while working full-time for a qualifying public service employer. Only Direct Loans held by the Department of Education are eligible.
-      ${r.parentPlus ? ' For Parent PLUS borrowers pursuing PSLF, consolidation is required and the <em>parent</em> — not the student — must be the qualifying public service employee.' : ''}
-      <a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service" target="_blank" rel="noopener">Learn more about PSLF ↗</a>
-    </div>
-  ` : '';
-
   const card = document.createElement('div');
   card.className = 'step-card';
   card.innerHTML = `
     <div class="res-header">
       <div class="res-eyebrow">Your Repayment Strategy</div>
-      <div class="res-title">${r.title}</div>
-      <div class="res-summary">${r.summary}</div>
+      <div class="res-title">${buildTitle(f)}</div>
+      <div class="res-summary">${buildSummary(f)}</div>
     </div>
     <div class="res-body">
-      ${consolidateHtml}
-      ${timingHtml}
-      ${plusNewNoteHtml}
-      ${plansHtml}
-      ${payoffHtml}
-      ${pslfHtml}
+      ${buildConsolidationSections(f)}
+      ${buildTimingSection(f)}
+      ${buildPlansSection(f)}
+      ${buildPayoffSection(f)}
+      ${buildPslfReminder(f)}
       <div class="note-box" style="margin-top:14px;">
-        <strong>Note:</strong> Information reflects available options and considerations only, and should not be construed as financial or legal recommendations. Talk to a coach to determine the best strategy based on your specific situation.
+        <strong>Note:</strong> Information reflects available options and considerations only — not financial or legal advice. Talk to a coach to determine the best strategy for your specific situation.
       </div>
     </div>
     <hr class="card-hr">
@@ -787,6 +562,252 @@ function renderResult(id) {
   app.appendChild(card);
 }
 
+// ── Title ─────────────────────────────────────────────────
+
+function buildTitle(f) {
+  const timeline = f.newLoans ? 'Post-July 2026' : 'Pre-July 2026';
+  const goal = f.pslf ? 'PSLF Path' : f.payoff ? 'Pay Off Fast' : 'Minimize Payment';
+  if (f.payoff) return `${timeline} · ${goal}`;
+  const loans = [];
+  if (!f.hasFfelp && !f.hasPerkins && !f.hasParentPlus) loans.push('Direct Loans');
+  if (f.hasFfelp)      loans.push('FFELP');
+  if (f.hasPerkins)    loans.push('Perkins');
+  if (f.hasParentPlus) loans.push('Parent PLUS');
+  return `${timeline} · ${goal} · ${loans.join(' + ')}`;
+}
+
+// ── Summary ───────────────────────────────────────────────
+
+function buildSummary(f) {
+  if (f.payoff) return 'Prioritizing payoff speed means paying more than the minimum each month. Here are the main strategies and trade-offs to consider.';
+  const needsConsol = f.hasFfelp || f.hasPerkins || f.hasParentPlus;
+  if (!needsConsol) return `Your Direct Loans are already eligible for ${f.pslf ? 'PSLF-eligible ' : ''}income-driven repayment. Compare the plans below to find the best fit for your income and family size.`;
+  const parts = [];
+  if (f.hasFfelp)      parts.push(f.ffelpFederal ? 'federally-held FFELP Loans' : f.ffelpPrivate ? 'privately-held FFELP Loans' : 'FFELP Loans (held status unknown)');
+  if (f.hasPerkins)    parts.push('Perkins Loans');
+  if (f.hasParentPlus) parts.push('Parent PLUS Loans');
+  return `Your ${parts.join(', ')} require${parts.length === 1 ? 's' : ''} careful attention before you can access ${f.pslf ? 'PSLF-eligible ' : ''}repayment plans. Review each section below carefully — timing and sequencing matter.`;
+}
+
+// ── Consolidation sections (one per loan type) ────────────
+
+function buildConsolidationSections(f) {
+  if (!f.hasFfelp && !f.hasPerkins && !f.hasParentPlus) return '';
+  let html = `<div class="sec-label">Consolidation Requirements</div>`;
+  html += ffelpBlock(f);
+  html += perkinsBlock(f);
+  html += parentPlusBlock(f);
+  return html;
+}
+
+function ffelpBlock(f) {
+  if (!f.hasFfelp) return '';
+  const timingLine = !f.newLoans
+    ? `<p><strong>Timing:</strong> If consolidation is needed, it must be <strong>disbursed before July 1, 2026</strong> for the new Direct Consolidation Loan to remain eligible for IBR.</p>`
+    : '';
+
+  if (f.ffelpFederal) return `
+    <div class="consol-block consol-info">
+      <div class="consol-icon">ℹ</div>
+      <div class="consol-content">
+        <strong>FFELP Loans — Federally Held</strong>
+        <p>Because your FFELP Loans are federally held, you <em>may already have access to IBR</em> without consolidating. Contact your servicer to confirm which IDR plans you can currently access on these loans.</p>
+        <p>${f.pslf ? 'To qualify for PSLF, consolidation into a Direct Consolidation Loan is required — federally held FFELP Loans are not directly PSLF-eligible.' : 'To access the full range of IDR plans and preserve future PSLF eligibility, consolidation into a Direct Consolidation Loan is an option worth considering. Check with your servicer first to understand what you can access without consolidating.'}</p>
+        ${timingLine}
+      </div>
+    </div>`;
+
+  if (f.ffelpPrivate) return `
+    <div class="consol-block consol-warn">
+      <div class="consol-icon">⚠</div>
+      <div class="consol-content">
+        <strong>FFELP Loans — Privately Held</strong>
+        <p>Because your FFELP Loans are privately held, you currently have <strong>no access to federal IDR plans or PSLF</strong> on these loans. Consolidation into a Direct Consolidation Loan is required before any IDR plan or PSLF becomes available.</p>
+        ${timingLine}
+      </div>
+    </div>`;
+
+  // unsure
+  return `
+    <div class="consol-block consol-warn">
+      <div class="consol-icon">⚠</div>
+      <div class="consol-content">
+        <strong>FFELP Loans — Held Status Unknown</strong>
+        <p>Whether your FFELP Loans are federally or privately held significantly affects your options and next steps. <strong>Verify before proceeding:</strong> Log into <a href="https://studentaid.gov" target="_blank" rel="noopener">StudentAid.gov</a>, go to "My Aid," and review your loan servicer. Federal servicers include MOHELA, Aidvantage, Nelnet, and EdFinancial. A private bank or lender means privately held.</p>
+        <p>The guidance below treats consolidation as required. If you confirm federal hold, some IDR access may already exist — verify with your servicer before initiating consolidation.</p>
+        ${timingLine}
+      </div>
+    </div>`;
+}
+
+function perkinsBlock(f) {
+  if (!f.hasPerkins) return '';
+  const timingLine = !f.newLoans
+    ? `<p><strong>Timing:</strong> If you consolidate, the consolidation loan must be <strong>disbursed before July 1, 2026</strong> for IBR eligibility.</p>`
+    : '';
+  return `
+    <div class="consol-block consol-danger">
+      <div class="consol-icon">🚨</div>
+      <div class="consol-content">
+        <strong>Perkins Loans — Review Cancellation Benefits Before Consolidating</strong>
+        <p>Consolidating Perkins Loans <strong>permanently forfeits all Perkins cancellation benefits</strong> you may be eligible for, including:</p>
+        <ul class="consol-list">
+          <li>Teacher cancellation — up to 100% for qualifying low-income school or educational service agency teachers</li>
+          <li>Public service cancellation — law enforcement, corrections officers, public defenders, nurses, and others</li>
+          <li>Volunteer service cancellation — Peace Corps and AmeriCorps VISTA volunteers</li>
+          <li>Military service cancellation</li>
+          <li>Child/family services and early childhood workers</li>
+        </ul>
+        <p><strong>Before consolidating your Perkins Loans</strong>, verify whether you qualify for any of the above. If you do, you may wish to pursue Perkins cancellation separately and intentionally <em>exclude</em> the Perkins Loan from your consolidation.</p>
+        <p>If you decide consolidation is the right choice, your Perkins Loan <strong>will not be automatically included</strong> — you must explicitly list it on the consolidation application.</p>
+        ${timingLine}
+      </div>
+    </div>`;
+}
+
+function parentPlusBlock(f) {
+  if (!f.hasParentPlus) return '';
+  return `
+    <div class="consol-block consol-warn">
+      <div class="consol-icon">⚠</div>
+      <div class="consol-content">
+        <strong>Parent PLUS Loans — Consolidation Required for IDR and PSLF</strong>
+        <p>Parent PLUS Loans are Direct Loans, but they must be consolidated into a Direct Consolidation Loan before they can access any income-driven repayment plan or qualify for PSLF. Without consolidation, <strong>no IDR plan is available</strong> for Parent PLUS Loans.</p>
+        ${f.pslf ? `<p><strong>PSLF Note:</strong> For PSLF eligibility on a consolidated Parent PLUS Loan, the <em>parent borrower</em> — not the student — must be the qualifying public service employee making the payments.</p>` : ''}
+      </div>
+    </div>`;
+}
+
+// ── Timing deadlines ──────────────────────────────────────
+
+function buildTimingSection(f) {
+  // Show timing for Parent PLUS with pre-July 2026 loans
+  // Also show consolidated timing note for FFELP/Perkins-only consolidation cases
+  const needsConsolTiming = (f.hasFfelp || f.hasPerkins) && !f.newLoans;
+  const hasParentPlusTiming = f.hasParentPlus && !f.newLoans;
+
+  if (!needsConsolTiming && !hasParentPlusTiming) return '';
+
+  let rows = '';
+
+  if (!f.newLoans && (f.hasFfelp || f.hasPerkins)) {
+    rows += `
+      <div class="timing-row">
+        <div class="timing-date">Before<br>July 1, 2026</div>
+        <div class="timing-desc">Any consolidation loan must be <strong>disbursed before this date</strong> for the new Direct Consolidation Loan to be eligible for IBR. If disbursement occurs after this date, IBR will not be available on the consolidated loan.</div>
+      </div>`;
+  }
+
+  if (hasParentPlusTiming) {
+    if (!rows) { // Add the July 1 row for Parent PLUS too if not already added
+      rows += `
+        <div class="timing-row">
+          <div class="timing-date">Before<br>July 1, 2026</div>
+          <div class="timing-desc">Consolidation of Parent PLUS Loans must be <strong>disbursed before this date</strong> for the consolidated loan to be eligible for IBR. Missing this deadline means only RAP will be available as an income-driven option after consolidation.</div>
+        </div>`;
+    }
+    rows += `
+      <div class="timing-row">
+        <div class="timing-date">Before<br>2027 Deadline</div>
+        <div class="timing-desc">Parent PLUS borrowers must make <strong>at least one qualifying payment under ICR</strong> before the 2027 program deadline to preserve access to ICR and its associated forgiveness pathway. Waiting too long risks losing this option entirely.</div>
+      </div>`;
+  }
+
+  return `<div class="sec-label">⏰ Critical Timing Deadlines</div><div class="timing-card">${rows}</div>`;
+}
+
+// ── IDR Plans ─────────────────────────────────────────────
+
+function buildPlansSection(f) {
+  if (f.payoff) return '';
+  const label = f.pslf ? 'Available PSLF-Eligible IDR Plans' : 'Available Income-Driven Repayment (IDR) Plans';
+
+  let plans;
+  if (f.newLoans) {
+    plans = [
+      { abbr:'RAP', name:'Repayment Assistance Plan',
+        sub:'No payment cap — monthly payment may be higher than Standard Repayment. Check your numbers carefully before enrolling.',
+        badge:'b-coming', bl:'When Launched' }
+    ];
+  } else if (f.hasParentPlus) {
+    plans = [
+      { abbr:'PAYE', name:'Pay As You Earn',
+        sub:'Not available for Parent PLUS Loans directly. Available on other non-Parent PLUS Direct Loans in the same portfolio.',
+        badge:'b-expiring', bl:'Until July 2028' },
+      { abbr:'ICR',  name:'Income-Contingent Repayment',
+        sub:'<em>Primary IDR pathway for consolidated Parent PLUS Loans.</em> Payments at 20% of discretionary income or fixed 12-year amount, whichever is less. Must make at least one qualifying payment before the 2027 deadline.',
+        badge:'b-expiring', bl:'Until July 2028', hl:true },
+      { abbr:'IBR',  name:'Income-Based Repayment',
+        sub:'<em>Only available if consolidation loan is disbursed before July 1, 2026.</em> Payments capped at 10–15% of discretionary income depending on when you first borrowed.',
+        badge:'b-timing', bl:'Before July 1, 2026' },
+      { abbr:'RAP',  name:'Repayment Assistance Plan',
+        sub:'No payment cap — monthly payment may be higher than Standard Repayment. Run your numbers carefully.',
+        badge:'b-coming', bl:'When Launched' },
+    ];
+  } else {
+    plans = [
+      { abbr:'PAYE', name:'Pay As You Earn',
+        sub:'Payments capped at 10% of discretionary income.',
+        badge:'b-expiring', bl:'Until July 2028' },
+      { abbr:'ICR',  name:'Income-Contingent Repayment',
+        sub:'Payments at 20% of discretionary income or the fixed 12-year amount, whichever is less.',
+        badge:'b-expiring', bl:'Until July 2028' },
+      { abbr:'IBR',  name:'Income-Based Repayment',
+        sub:'Payments capped at 10–15% of discretionary income depending on when you first borrowed.',
+        badge:'b-active', bl:'Available' },
+      { abbr:'RAP',  name:'Repayment Assistance Plan',
+        sub:'No payment cap — monthly payment may be higher than Standard Repayment. Run your numbers carefully.',
+        badge:'b-coming', bl:'When Launched' },
+    ];
+  }
+
+  const planItems = plans.map(p => `
+    <div class="plan-item${p.hl ? ' plan-hl' : ''}">
+      <div>
+        <div class="p-name"><span class="p-abbr">${p.abbr}</span>${p.name}</div>
+        <div class="p-sub">${p.sub}</div>
+      </div>
+      <span class="badge ${p.badge}">${p.bl}</span>
+    </div>`).join('');
+
+  const planNote = plans.length > 1 ? `
+    <div class="note-box" style="margin-top:10px;">
+      <strong>Note:</strong> ${f.hasParentPlus
+        ? 'Payment amounts vary by plan, income, family size, and loan age. ICR is typically the primary pathway for consolidated Parent PLUS Loans, but all eligible plans should be compared. Use the Loan Simulator to run your numbers.'
+        : 'IBR, PAYE, and RAP may yield different monthly payment amounts depending on your income and the age of your oldest loans. Compare all options using the Loan Simulator before enrolling.'}
+    </div>` : '';
+
+  return `<div class="sec-label">${label}</div><div class="plan-list">${planItems}</div>${planNote}`;
+}
+
+// ── Pay-off options ───────────────────────────────────────
+
+function buildPayoffSection(f) {
+  if (!f.payoff) return '';
+  return `
+    <div class="sec-label">Options &amp; Considerations</div>
+    <div class="opt-card">
+      <div class="opt-title">Standard Repayment + Additional Principal Payments</div>
+      <div class="opt-desc">Enroll in the Standard 10-Year Repayment Plan and pay more than the required monthly amount. Ask your servicer to apply extra payments to your <em>principal balance</em> — not future interest. <a href="https://powerpay.org" target="_blank" rel="noopener">PowerPay.org</a> can help model repayment strategies that minimize total interest paid.</div>
+    </div>
+    <div class="opt-card">
+      <div class="opt-title">Refinancing with a Private Loan</div>
+      <div class="opt-desc">Refinancing to a lower interest rate can reduce total cost, but you will <strong style="color:var(--navy);">permanently lose all federal benefits</strong> — IDR plans, PSLF eligibility, and federal deferment/forbearance protections. Weigh this trade-off carefully before refinancing any federal loans.</div>
+    </div>`;
+}
+
+// ── PSLF reminder ─────────────────────────────────────────
+
+function buildPslfReminder(f) {
+  if (!f.pslf) return '';
+  return `
+    <div class="pslf-box" style="margin-top:12px;">
+      <strong>PSLF Reminder:</strong> To qualify, you must make 120 qualifying monthly payments under a qualifying repayment plan while working full-time for a qualifying public service employer. Only Direct Loans held by the Department of Education are eligible.${f.hasParentPlus ? ' For Parent PLUS Loans, consolidation is required and the <em>parent borrower</em> — not the student — must be the qualifying public service employee.' : ''}
+      <a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service" target="_blank" rel="noopener">Learn more about PSLF ↗</a>
+    </div>`;
+}
+
+// ─── INIT ──────────────────────────────────────────────────
 render();
 </script>
 </body>
