@@ -292,27 +292,26 @@
 // ─────────────────────────────────────────────────────────
 
 let state = {
-  newLoans:   null,   // bool
-  pslf:       null,   // bool
-  goal:       null,   // 'payoff' | 'minimize'
-  loanTypes:  null,   // 'direct'|'ffelp'|'perkins'|'plus'|'ffelp_perkins'|'ffelp_plus'|'perkins_plus'|'all_three'
-  ffelpHeld:  null,   // 'federal' | 'private' | 'unsure'
+  newLoans:    null,  // bool
+  pslf:        null,  // bool
+  goal:        null,  // 'payoff' | 'minimize'
+  hasFfelp:    null,  // bool
+  hasPerkins:  null,  // bool
+  hasParentPlus: null,// bool
+  ffelpHeld:   null,  // 'federal' | 'private' | 'unsure'
 };
 
 let history = [];   // [{questionId, answerLabel, stateBefore}]
 
-// Helpers
-const HAS_FFELP   = t => ['ffelp','ffelp_perkins','ffelp_plus','all_three'].includes(t);
-const HAS_PERKINS = t => ['perkins','ffelp_perkins','perkins_plus','all_three'].includes(t);
-const HAS_PLUS    = t => ['plus','ffelp_plus','perkins_plus','all_three'].includes(t);
-
 function nextQ() {
-  if (state.newLoans  === null) return 'newLoans';
-  if (state.pslf      === null) return 'pslf';
+  if (state.newLoans     === null) return 'newLoans';
+  if (state.pslf         === null) return 'pslf';
   if (!state.pslf && state.goal === null) return 'goal';
-  if (state.goal === 'payoff')  return 'RESULT';
-  if (state.loanTypes === null) return 'loanTypes';
-  if (HAS_FFELP(state.loanTypes) && state.ffelpHeld === null) return 'ffelpHeld';
+  if (state.goal === 'payoff')     return 'RESULT';
+  if (state.hasFfelp     === null) return 'hasFfelp';
+  if (state.hasPerkins   === null) return 'hasPerkins';
+  if (state.hasParentPlus === null) return 'hasParentPlus';
+  if (state.hasFfelp && state.ffelpHeld === null) return 'ffelpHeld';
   return 'RESULT';
 }
 
@@ -355,43 +354,30 @@ const QUESTIONS = {
     ]
   },
 
-  loanTypes: {
-    q:    'Which of the following best describes your federal loan portfolio?',
-    hint: 'Select the option that covers <strong>all</strong> federal loans you hold. <strong>Grad PLUS Loans are Direct Loans</strong> — if you only have Grad PLUS and other Direct Loans, select "Direct Loans only."',
-    gradNote: true,
+  hasFfelp: {
+    q:    'Do you have any FFELP Loans?',
+    hint: 'FFELP (Federal Family Education Loan Program) loans were issued before 2010 and may be held federally or by a private lender. Check <a href="https://studentaid.gov" target="_blank" rel="noopener">StudentAid.gov</a> under "My Aid" if you are unsure.',
     choices: [
-      { label:'Direct Loans only',
-        sub:'Includes Direct Subsidized, Unsubsidized, and Grad PLUS — no FFELP, Perkins, or Parent PLUS',
-        icon:'i-a', letter:'Direct',
-        act: () => state.loanTypes = 'direct' },
-      { label:'FFELP Loans only',
-        sub:'Federal Family Education Loans held federally or by a private lender — no Perkins or Parent PLUS',
-        icon:'i-b', letter:'FFELP',
-        act: () => state.loanTypes = 'ffelp' },
-      { label:'Perkins Loans only',
-        sub:'Federal Perkins Loans administered through your school — no FFELP or Parent PLUS',
-        icon:'i-c', letter:'Perkins',
-        act: () => state.loanTypes = 'perkins' },
-      { label:'Parent PLUS Loans only',
-        sub:'Direct PLUS Loans taken out by a parent for a dependent student — no FFELP or Perkins',
-        icon:'i-d', letter:'Parent PLUS',
-        act: () => state.loanTypes = 'plus' },
-      { label:'FFELP + Perkins Loans',
-        sub:'Both FFELP and Perkins Loans — no Parent PLUS',
-        icon:'i-b', letter:'FFELP+Perkins',
-        act: () => state.loanTypes = 'ffelp_perkins' },
-      { label:'FFELP + Parent PLUS Loans',
-        sub:'Both FFELP and Parent PLUS Loans — no Perkins',
-        icon:'i-b', letter:'FFELP+Parent PLUS',
-        act: () => state.loanTypes = 'ffelp_plus' },
-      { label:'Perkins + Parent PLUS Loans',
-        sub:'Both Perkins and Parent PLUS Loans — no FFELP',
-        icon:'i-c', letter:'Perkins+Parent PLUS',
-        act: () => state.loanTypes = 'perkins_plus' },
-      { label:'FFELP + Perkins + Parent PLUS Loans',
-        sub:'All three non-Direct loan types',
-        icon:'i-e', letter:'All Three',
-        act: () => state.loanTypes = 'all_three' },
+      { label:'Yes — I have FFELP Loans',   icon:'i-yes', letter:'Yes', act: () => state.hasFfelp = true  },
+      { label:'No — I do not have FFELP Loans', icon:'i-no',  letter:'No',  act: () => state.hasFfelp = false },
+    ]
+  },
+
+  hasPerkins: {
+    q:    'Do you have any Perkins Loans?',
+    hint: 'Federal Perkins Loans were issued through your school and are a campus-based loan program. The program ended in 2017, but older borrowers may still hold them.',
+    choices: [
+      { label:'Yes — I have Perkins Loans',      icon:'i-yes', letter:'Yes', act: () => state.hasPerkins = true  },
+      { label:'No — I do not have Perkins Loans', icon:'i-no',  letter:'No',  act: () => state.hasPerkins = false },
+    ]
+  },
+
+  hasParentPlus: {
+    q:    'Do you have any Parent PLUS Loans?',
+    hint: 'Parent PLUS Loans are Direct Loans taken out by a parent to pay for a dependent student\'s education. <strong>Grad PLUS Loans are different</strong> — they are standard Direct Loans already eligible for IDR and PSLF without any consolidation. If you only have Grad PLUS, answer No here.',
+    choices: [
+      { label:'Yes — I have Parent PLUS Loans',      icon:'i-yes', letter:'Yes', act: () => state.hasParentPlus = true  },
+      { label:'No — I do not have Parent PLUS Loans', icon:'i-no',  letter:'No',  act: () => state.hasParentPlus = false },
     ]
   },
 
@@ -438,7 +424,7 @@ function back() {
 
 function restart() {
   history = [];
-  state = { newLoans:null, pslf:null, goal:null, loanTypes:null, ffelpHeld:null };
+  state = { newLoans:null, pslf:null, goal:null, hasFfelp:null, hasPerkins:null, hasParentPlus:null, ffelpHeld:null };
   render(); scrollTop();
 }
 
@@ -519,14 +505,13 @@ function renderQuestion(q, step) {
 // ─────────────────────────────────────────────────────────
 
 function renderResult() {
-  const lt = state.loanTypes || 'direct';
   const f = {
-    newLoans:    state.newLoans,
-    pslf:        state.pslf,
-    payoff:      state.goal === 'payoff',
-    hasFfelp:    HAS_FFELP(lt),
-    hasPerkins:  HAS_PERKINS(lt),
-    hasParentPlus: HAS_PLUS(lt),
+    newLoans:      state.newLoans,
+    pslf:          state.pslf,
+    payoff:        state.goal === 'payoff',
+    hasFfelp:      !!state.hasFfelp,
+    hasPerkins:    !!state.hasPerkins,
+    hasParentPlus: !!state.hasParentPlus,
     ffelpFederal:  state.ffelpHeld === 'federal',
     ffelpPrivate:  state.ffelpHeld === 'private',
     ffelpUnsure:   state.ffelpHeld === 'unsure',
