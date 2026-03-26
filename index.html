@@ -255,7 +255,8 @@
   .consol-block p:first-of-type { margin-top: 0; }
   .consol-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
   .consol-content { flex: 1; }
-  .consol-content strong { color: var(--navy); display: block; margin-bottom: 4px; font-size: 0.88rem; }
+  .consol-content strong { color: var(--navy); }
+  .consol-title { color: var(--navy); display: block; margin-bottom: 6px; font-size: 0.88rem; font-weight: bold; }
   .consol-content a { color: var(--blue); }
 
   /* Color variants — aligned with Qualtrics survey boxes */
@@ -733,7 +734,7 @@ function ffelpBlock(f) {
     <div class="consol-block consol-info">
       <div class="consol-icon">ℹ</div>
       <div class="consol-content">
-        <strong>FFELP Loans — Federally Held</strong>
+        <span class="consol-title">FFELP Loans — Federally Held</span>
         <p>Because your FFELP Loans are federally held, you <em>may already have access to IBR</em> without consolidating. Contact your servicer to confirm which IDR plans you can currently access on these loans.</p>
         <p>${f.pslf ? 'To qualify for PSLF, consolidation into a Direct Consolidation Loan is required — federally held FFELP Loans are not directly PSLF-eligible.' : 'To access the full range of IDR plans and preserve future PSLF eligibility, consolidation into a Direct Consolidation Loan is an option worth considering. Check with your servicer first to understand what you can access without consolidating.'}</p>
         ${timingLine}
@@ -744,7 +745,7 @@ function ffelpBlock(f) {
     <div class="consol-block consol-warn">
       <div class="consol-icon">⚠</div>
       <div class="consol-content">
-        <strong>FFELP Loans — Privately Held</strong>
+        <span class="consol-title">FFELP Loans — Privately Held</span>
         <p>Because your FFELP Loans are privately held, you currently have <strong>no access to federal IDR plans or PSLF</strong> on these loans. Consolidation into a Direct Consolidation Loan is required before any IDR plan or PSLF becomes available.</p>
         ${timingLine}
       </div>
@@ -754,7 +755,7 @@ function ffelpBlock(f) {
     <div class="consol-block consol-warn">
       <div class="consol-icon">⚠</div>
       <div class="consol-content">
-        <strong>FFELP Loans — Held Status Unknown</strong>
+        <span class="consol-title">FFELP Loans — Held Status Unknown</span>
         <p>Whether your FFELP Loans are federally or privately held significantly affects your options and next steps. <strong>Verify before proceeding:</strong> Log into <a href="https://studentaid.gov" target="_blank" rel="noopener">StudentAid.gov</a>, go to "My Aid," and review your loan servicer. Federal servicers include MOHELA, Aidvantage, Nelnet, and EdFinancial. A private bank or lender means privately held.</p>
         <p>The guidance below treats consolidation as required. If you confirm federal hold, some IDR access may already exist — verify with your servicer before initiating consolidation.</p>
         ${timingLine}
@@ -771,7 +772,7 @@ function perkinsBlock(f) {
     <div class="consol-block consol-danger">
       <div class="consol-icon">🚨</div>
       <div class="consol-content">
-        <strong>Perkins Loans — Review Cancellation Benefits Before Consolidating</strong>
+        <span class="consol-title">Perkins Loans — Review Cancellation Benefits Before Consolidating</span>
         <p>Consolidating Perkins Loans <strong>permanently forfeits all Perkins cancellation benefits</strong> you may be eligible for, including:</p>
         <ul class="consol-list">
           <li>Teacher cancellation — up to 100% for qualifying low-income school or educational service agency teachers</li>
@@ -793,7 +794,7 @@ function parentPlusBlock(f) {
     <div class="consol-block consol-warn">
       <div class="consol-icon">⚠</div>
       <div class="consol-content">
-        <strong>Parent PLUS Loans — Consolidation Required for IDR and PSLF</strong>
+        <span class="consol-title">Parent PLUS Loans — Consolidation Required for IDR and PSLF</span>
         <p>Parent PLUS Loans are Direct Loans, but they must be consolidated into a Direct Consolidation Loan before they can access any income-driven repayment plan or qualify for PSLF. Without consolidation, <strong>no IDR plan is available</strong> for Parent PLUS Loans.</p>
         ${f.pslf ? `<p><strong>PSLF Note:</strong> For PSLF eligibility on a consolidated Parent PLUS Loan, the <em>parent borrower</em> — not the student — must be the qualifying public service employee making the payments.</p>` : ''}
       </div>
